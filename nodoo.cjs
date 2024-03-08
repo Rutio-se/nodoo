@@ -9,8 +9,8 @@ var Odoo = require('odoo-xmlrpc');
 
 exports.connect = async (params) => {
     this.odoo = new Odoo(params);
-    this.odooExecute = util.promisify(this.odoo.execute_kw).bind(odoo);
-    const odooConnect = util.promisify(this.odoo.connect).bind(odoo);
+    this.odooExecute = util.promisify(this.odoo.execute_kw).bind(this.odoo);
+    const odooConnect = util.promisify(this.odoo.connect).bind(this.odoo);
     await odooConnect();
     return true;
 }

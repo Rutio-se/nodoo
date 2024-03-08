@@ -1,0 +1,13 @@
+{
+  "name": "nodoo",
+  "version": "0.0.1",
+  "description": "Node Odoo integration example",
+  "main": "nodoo.cjs",
+  "author": "Lars Mats <lars.mats@rutio.se>",
+  "license": "MIT",
+  "homepage": "www.rutio.se",
+  "type": "module",
+  "dependencies": {
+    "odoo-xmlrpc": "^1.0.8"
+  }
+}

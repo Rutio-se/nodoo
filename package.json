@@ -1,11 +1,11 @@
 {
-  "name": "nodoo",
+  "name": "async-node-odoo",
   "version": "0.0.1",
-  "description": "Node Odoo integration example",
+  "description": "Node Odoo integration example with async methods",
   "main": "nodoo.cjs",
   "author": "Lars Mats <lars.mats@rutio.se>",
   "license": "MIT",
-  "homepage": "www.rutio.se",
+  "homepage": "https://github.com/Rutio-se/nodoo",
   "type": "module",
   "dependencies": {
     "odoo-xmlrpc": "^1.0.8"

@@ -1,9 +1,9 @@
 {
   "name": "async-node-odoo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Node Odoo integration example with async methods",
   "main": "nodoo.cjs",
-  "author": "Lars Mats <lars.mats@rutio.se>",
+  "author": "Lars Mats",
   "license": "MIT",
   "homepage": "https://github.com/Rutio-se/nodoo",
   "type": "module",

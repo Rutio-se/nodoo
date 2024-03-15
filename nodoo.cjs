@@ -48,7 +48,7 @@ exports.search_read = async (table, where, fields) => {
 exports.search_read_unique = async (table, where, fields) => {
     const results = await this.search_read(table, where, fields);
     if (results.length !== 1)
-        throw {message: 'search_read_unique: Expected exactly one result'};
+        throw {message: 'search_read_unique: Expected exactly one result, got ' + results.length};
     return results[0];
 }
 

@@ -57,19 +57,9 @@ exports.create = async (table, values) => {
     if (typeof (table) !== 'string' || table.length < 2) throw {message: 'expected table to be a string'};
     if (typeof (values) !== 'object' ) throw {message: 'expected create value to be an object'};
 
-    // Form a list of checks to check
-    let valueArray = [];
-    let valueKeys = Object.keys(values);
-    for (let i = 0; i < valueKeys.length; ++i) {
-        const key = valueKeys[i];
-        const value = values[key];
-        valueArray.push([key, '=', value]);
-    }
-
-    var params = [];
-    params.push(valueArray);
+    var params = [ values ];
     const createdId = await this.odooExecute(table, 'create', [params]); 
-    return result;
+    return createdId;
 }
 
 // Add on more...

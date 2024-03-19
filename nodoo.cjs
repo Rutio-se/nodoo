@@ -52,4 +52,24 @@ exports.search_read_unique = async (table, where, fields) => {
     return results[0];
 }
 
+exports.create = async (table, values) => {
+    if (!this.odoo) throw {message: 'Call connect first'};
+    if (typeof (table) !== 'string' || table.length < 2) throw {message: 'expected table to be a string'};
+    if (typeof (values) !== 'object' ) throw {message: 'expected create value to be an object'};
+
+    // Form a list of checks to check
+    let valueArray = [];
+    let valueKeys = Object.keys(values);
+    for (let i = 0; i < valueKeys.length; ++i) {
+        const key = valueKeys[i];
+        const value = values[key];
+        valueArray.push([key, '=', value]);
+    }
+
+    var params = [];
+    params.push(valueArray);
+    const createdId = await this.odooExecute(table, 'create', [params]); 
+    return result;
+}
+
 // Add on more...

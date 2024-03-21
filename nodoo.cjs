@@ -62,4 +62,25 @@ exports.create = async (table, values) => {
     return createdId;
 }
 
+
+exports.update_where_unique = async (table, where, values) => {
+    let {id} = await this.search_read_unique(table, where, ['id']);
+    let result = await this.update(table, id, values);
+    return result;
+}
+
+exports.update = async (table, id, values) => {
+    if (!this.odoo) throw {message: 'Call connect first'};
+    if (typeof (table) !== 'string' || table.length < 2) throw {message: 'expected table to be a string'};
+    if (typeof (id) !== 'number') throw {message: 'expected id to be a number'};
+    if (typeof (values) !== 'object' ) throw {message: 'expected create value to be an object'};
+
+    var params = [];
+    params.push([id]);
+    params.push(values);
+
+    const result = await this.odooExecute(table, 'write', [params]); 
+    return result;
+}
+
 // Add on more...
